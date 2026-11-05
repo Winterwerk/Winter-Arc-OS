@@ -1,0 +1,103 @@
+WINTER ARC OS V2.1 – INSTALLATION AUF DEM IPHONE
+===============================================
+
+BITTE UNBEDINGT ZUERST: ALTE TRAININGSDATEN SICHERN!
+
+1. Bisherige WINTER-ARC-App auf dem iPhone öffnen.
+2. Unter „Mehr“ → „Backup erstellen (JSON)“ antippen.
+3. Über „Teilen“ → „In Dateien sichern“ ein aktuelles Backup aufbewahren.
+4. Die von ChatGPT separat bereitgestellte ergänzte JSON-Datei ebenfalls
+   in der Dateien-App behalten. Sie enthält die bekannten Körperumfänge.
+5. KEINE dieser privaten JSON-Dateien in GitHub hochladen!
+
+GITHUB UPLOAD – EINFACHER DIREKTER WEG
+
+1. Die Datei WINTER-ARC-OS-v2.1-GitHub.zip in „Dateien“ speichern.
+2. In „Dateien“ einmal auf die ZIP tippen, um sie zu entpacken.
+3. Ordner WINTER-ARC-OS-v2.1-GitHub öffnen.
+4. GitHub in Safari öffnen:
+   https://github.com/Winterwerk/Winter-Arc-OS
+5. Prüfen, dass der Branch „main“ angezeigt wird.
+6. „Add file“ → „Upload files“ wählen. Auf iPhones ggf. Safari-Menü
+   „Desktop-Website anfordern“ verwenden.
+7. Aus dem ENTpackten Ordner die App-Dateien auswählen:
+   index.html, app.js, data.js, store.js, atlas.js, charts.js,
+   benchmarks.js,
+   style.css, sw.js, manifest.webmanifest,
+   icon-180.png, icon-192.png, icon-512.png.
+   Optional zusätzlich README.md, DATENQUELLEN.md, ANLEITUNG-iPHONE.txt, .nojekyll.
+8. Alle Dateien müssen im HAUPTVERZEICHNIS des Repositories liegen,
+   NICHT im Unterordner WINTER-ARC-OS-v2.1-GitHub.
+9. Commit-Nachricht z.B. „Release WINTER ARC OS v2.0“ und Commit bestätigen.
+10. Prüfen, ob GitHub → Settings → Pages die Quelle „main / (root)“
+    verwendet. Wenn bereits eingestellt, nichts ändern.
+11. Die in Settings → Pages angezeigte veröffentlichte URL in Safari öffnen.
+    Bei Standardkonfiguration lautet sie ungefähr:
+    https://winterwerk.github.io/Winter-Arc-OS/
+    (Die tatsächlich von GitHub angezeigte URL ist verbindlich.)
+12. Wenn die neue Version angezeigt wird: Safari → Teilen →
+    „Zum Home-Bildschirm hinzufügen“, falls noch nicht installiert.
+
+WIE KOMMEN DIE ALTEN DATEN IN DIE NEUE APP?
+
+A) Wenn exakt dieselbe Website und derselbe Safari-/PWA-Speicher verwendet
+   werden, kopiert V2 die alten V1-Daten beim ersten Start selbst.
+
+B) Wenn in der neuen App keine Gewichte oder Einheiten angezeigt werden:
+   Unter „Mehr“ → „JSON importieren“ die private Datei
+   winter-arc-backup-ergaenzt-2026-11-03.json auswählen.
+   Achtung: Der Import ERSETZT vorhandene V2-Daten! Vorher ggf. V2 exportieren.
+
+C) In „Körper“ sollen dann Messungen vom 15., 23. und 30. Oktober
+   erscheinen. Die letzte dokumentierte Gewichtsmessung ist 109,8 kg.
+   (Nur sofern das ergänzte Backup importiert wurde.)
+
+NEUEN TRAININGSPLAN AKTIVIEREN
+
+1. „Mehr“ öffnen.
+2. Unter „Trainingsplan“ den Button „5.2-Plan aktivieren“ antippen.
+3. Bestätigen, dass der bisherige bearbeitbare Plan ersetzt werden darf.
+4. Trainingshistorie bleibt dabei erhalten.
+5. Unter „Training“ Tag A, B oder C wählen.
+6. Nach Krankheit oder bei Beschwerden zunächst die Stufe „Einstieg“
+   verwenden und Intensität kontrollieren.
+
+KURZER FUNKTIONSTEST
+
+[ ] Home öffnet das Dashboard
+[ ] Training zeigt A / B / C und erlaubt Gewicht/Wdh. einzutragen
+[ ] Körper zeigt ein anklickbares Front-/Rücken-SVG
+[ ] „Muskeln“ färbt Bereiche nach dokumentierten Sätzen
+[ ] „Umfänge“ zeigt die gespeicherten Messungen
+[ ] Analyse zeigt Kalender, Bestwerte und den neuen Profi-/Wettkampfvergleich
+[ ] 201 cm ergibt 128,8 kg Pro und 124,3 kg NPC-Amateur
+[ ] Im Profi-Vergleich zwischen Bühne und Offseason wechseln
+[ ] „Mehr“ → Backup exportieren funktioniert
+[ ] App öffnet nach einem ersten erfolgreichen Online-Laden auch offline
+
+WENN ES NICHT FUNKTIONIERT
+
+- Neue Version nicht sichtbar: Web-App vollständig schließen, Safari mit
+  Internet öffnen und erneut laden. Service-Worker-Update berücksichtigen.
+- Daten fehlen: Safari-Tab und installierte PWA können getrennt speichern.
+  Privates JSON-Backup in GENAU der verwendeten App-Instanz importieren.
+- Weißer/leerer Bildschirm: Prüfen, ob ALLE 13 App-Dateien in der
+  Repository-Wurzel liegen, besonders data.js, store.js, atlas.js,
+  charts.js, benchmarks.js und app.js.
+- Keine Datei nur durch Öffnen der lokalen index.html in „Dateien“ testen:
+  JavaScript-Module benötigen einen Webserver.
+- Wenn GitHub-Dateien ersetzt wurden und die App weiterhin falsch läuft:
+  Screenshot und genaue Fehlermeldung an ChatGPT schicken.
+
+RÜCKWEG
+
+Die bisherige V1-Speicherung bleibt im alten Schlüssel winterArcOS_v1.
+Der neue V2-Schlüssel heißt winterArcOS_v2. Ein Zurücksetzen der
+GitHub-Dateien auf die frühere Version kann die alte App wiederherstellen,
+sofern die alten lokalen Daten und der Browser-Kontext erhalten sind.
+Zusätzlich immer private JSON-Backups aufbewahren.
+
+NEU: Analyse → Wettkampflimits & Profi-Vergleich. Quelle und Datenqualität
+stehen jeweils am Eintrag. Historische Profi-Gewichte sind nicht amtlich
+gewogene Vergleichswerte und keine Empfehlung für dein Zielgewicht.
+Alte JSON-Backups bleiben kompatibel; NICHT in GitHub hochladen.

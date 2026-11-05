@@ -1,52 +1,103 @@
-# WINTER ARC OS – V1.2
+# WINTER ARC OS · 2.1.0
 
-Kostenlose, auf dem iPhone verwendbare Trainings-Web-App für GitHub Pages. Keine externen Bibliotheken, API-Keys, Accounts oder Datenbanken.
+**Offlinefähige, private Trainings- und Körper-Tracking-Web-App für GitHub Pages und iPhone.**
 
-## NEU: Daily Coach (V1.2)
-- **Startseite = Daily Coach.** Beim Check-in Schicht (Früh, Tag, Nacht, Ausruhtag, Frei), Schlaf in Stunden, Ermüdung 0–10, Rücken 0–10 und neue neurologische Warnsymptome erfassen.
-- **Empfehlungslogik** verarbeitet lokal deine tatsächlich protokollierten A/B/C-Einheiten, Laufarten, Long Run, die letzten sieben Tage sowie grobe Erholungsindikatoren. Sie schlägt A/B/C, Easy Run, Zone 2, Long Run oder Erholung vor und zeigt die Gründe.
-- **Tagesempfehlung** öffnet die passende Trainingseinheit; bei erhöhter Ermüdung mit reduziertem Satzumfang. Bisher nicht abgeschlossenes Training vor Wechsel prüfen.
-- **Optionaler 7-Tage-Dienstplan** mit Schichtart und geplanten Long Runs zur Vermeidung unnötiger Überschneidungen mit schwerem Beintraining.
-- Alles bleibt in `localStorage` und wird im JSON-Backup mitgesichert. Keine KI und keine verlässliche medizinische Risikoanalyse. **Abweichende Empfehlungen jederzeit manuell überschreiben.**
-- Bei fehlenden Trainingsdaten sind Vorschläge vorläufig; die App kennt keine Garmin-Daten und kennt nur protokollierte Trainingstage.
+## Neu in V2.1 – Physique Benchmarks (Stand 03.11.2026)
 
-## Was ist bereits enthalten?
-- A/B/C-Hybrid-Split: Oberkörper, Unterkörper/Knie/Hüfte/Core, Ganzkörper.
-- **Einstieg** (reduziertes Volumen) und **Aufbau** (Zielvolumen) manuell umschaltbar unter **Mehr**.
-- Training mit separaten Aufwärmsätzen, Gewicht und Wiederholungen je Satz, RIR, Methode (Normal, Rest-Pause, Myo-Reps, Lengthened Partials, 1,5-Wdh.) und Notizen.
-- Vorherige Trainingsgewichte an derselben Übung als Orientierung und Verlaufsgrafik.
-- Lauftracking: Easy Run, Zone 2, Long Run und AirBike 4×4, inkl. Distanz, Minuten, Durchschnittspuls und RPE.
-- Ziel: Halbmarathon 06.06.2027 bei 5:30 min/km (in der App änderbar).
-- Körpermessungen mit Kurven.
-- Abhakbare fünfteilige Morgenroutine (tagesbezogen).
-- Polizeidienst / Rücken: Schichtart, Tragedauer der Schutzweste, Verspannungs-/Ermüdungswert, Schlaf und Notizen.
-- Lokale Datensicherung als JSON; JSON-Import; installierbare Offline-Web-App nach dem ersten Laden.
+Unter **Analyse** gibt es einen neuen Abschnitt **Wettkampflimits & Profi-Vergleich**:
 
-## iPhone-Setup (kein PC nötig)
-1. ZIP im iPhone-Browser herunterladen, in der App **Dateien** speichern und antippen, um sie zu entpacken.
-2. In Safari bei `https://github.com/new` das öffentliche Repo **winter-arc-os** erstellen. README beim Erstellen deaktivieren.
-3. Auf die neu erstellte Repository-Seite gehen. **uploading an existing file** oder **Add file → Upload files** öffnen. Aus dem entpackten Ordner die **einzelnen Dateien** auswählen (NICHT die ZIP-Datei und NICHT einen übergeordneten Ordner). Falls nötig: Safari → Desktop-Website anfordern. **Commit changes**.
-4. Für eine funktionierende App müssen `index.html`, `app.js`, `style.css`, `manifest.webmanifest`, `sw.js`, `icon-180.png`, `icon-192.png`, `icon-512.png` im Repository-Hauptverzeichnis liegen. `README.md` ist optional, `.nojekyll` kann entfallen.
-5. **Settings → Pages → Source: Deploy from a branch → Branch: main → Folder: / (root) → Save**.
-6. Nach erfolgreicher Veröffentlichung die URL `https://DEINNAME.github.io/winter-arc-os/` in **Safari** öffnen. Die Erstveröffentlichung kann bis zu etwa 20 Minuten dauern.
-7. Safari → **Teilen → Zum Home-Bildschirm hinzufügen → Als Web-App öffnen → Hinzufügen**.
-8. Ab jetzt im Home-Bildschirm-Symbol protokollieren. **Mehr → Backup erstellen (JSON)** testen und regelmäßig eine Kopie in **Dateien** sichern. Zum Wiederherstellen **Mehr → Backup importieren**.
+- Körpergröße separat ändern (Vorgabe 201 cm, lokal gespeichert)
+- Das zuletzt in der App erfasste Körpergewicht mit dem größenabhängigen Gewichtslimit der **IFBB Pro League Classic Physique** und **NPC Worldwide Classic Physique (Amateur)** vergleichen
+- Für 201 cm gilt wegen der Kategorie >200,7 cm: **Pro 128,8 kg**, **NPC Worldwide Amateur 124,3 kg** (Regeln von September/Oktober 2026)
+- Men's Open ohne Gewichtslimit, Men's 212 bis ca. 96,2 kg (212 lb)
+- Offizielle Klassentabelle aufklappen
+- Historische / datierte Profi-Gewichte nach **Bühne** oder **Offseason** filtern; Quelle und Genauigkeit je Datensatz sichtbar
+- Kein fiktiver Mike-Gaiera-Wert: Es liegt keine hinreichend belastbare, eindeutig zuzuordnende Angabe vor
+- Diese Gewichte sind keine Empfehlungen, Vorgaben für Muskelmasse oder gesundheitlichen Zielwerte
 
-## Wichtig zum Datenspeicher
-- Der **öffentliche GitHub-Code** enthält **keine** Trainings-, Körper- oder Dienstdaten. Diese werden nur lokal in `localStorage` des jeweiligen iPhone-Web-App-Kontexts gespeichert.
-- Kein automatischer Sync zwischen Safari-Tab und Home-Bildschirm-App, kein Sync mit GitHub oder iCloud. Beim Wechsel unbedingt **Backup exportieren und importieren**.
-- Die App selbst ist öffentlich erreichbar und besitzt **keine Zugangskontrolle**. Der Quellcode ist ebenfalls öffentlich. Persönliche Protokolle bleiben lokal, sofern sie nicht ausdrücklich in den Quellcode oder GitHub eingecheckt werden.
-- Bei gelöschten Website-/App-Daten oder Geräteneuinstallation gehen ohne Backup möglicherweise alle Daten verloren. JSON-Backups sicher aufbewahren und gelegentlich den Wiederimport testen.
-- Offline-Funktion nach erfolgreichem ersten Online-Laden; Änderungen an der App erfordern Internet. Nach Software-Updates kann ein erneutes Öffnen bei Internetverbindung nötig sein.
+**Quellen (eingebettet und in der App verlinkt):**
+- https://www.ifbbpro.com/rules/
+- https://www.ifbbpro.com/npc-worldwide/rules/
+- https://www.repone.de/news/national/urs-kalecinski-spricht-ueber-seine-comeback-plaene/
+- https://fitnessvolt.com/urs-kalecinski-hints-2027-new-york-pro-and-pittsburgh-pro/
+- https://thebarbell.com/1975-mr-olympia/
+- https://gmvbodybuilding.com/v-213c-download/
+- https://www.muscleandfitness.com/flexonline/the-heavy-duty-life-and-career-of-dorian-yates/
+- https://www.muscleandfitness.com/athlete/ronnie-coleman/
+- https://www.muscleandfitness.com/athletes-celebrities/interviews/how-chris-bumstead-could-become-first-classic-physique-superstar/
 
-## Trainingshinweis
-Allgemeines Trainingstagebuch, kein Medizinprodukt. Bei der bekannten Bandscheibenhistorie Belastungen symptomverträglich gestalten und auffällige Symptome medizinisch abklären. Die Trainingsstufe **Einstieg** ist vorgewählt; nicht direkt das volle Zielvolumen erzwingen.
+Die Referenzdaten sind **offline in `benchmarks.js`** abgelegt. Die Quelllinks benötigen eine Internetverbindung. Sämtliche Profi-Wettkampfgewichte sind Presse-/Athleten- bzw. historische Profilangaben und keine offiziell bestätigten Wettkampf-Waageprotokolle. Regeländerungen müssen später manuell aktualisiert werden.
 
-## Bearbeiten
-`app.js`: Training, Eingabemasken und Speicherung. `style.css`: Design. `index.html`: Meta/Layout. `sw.js`: Offline-Cache-Version. `manifest.webmanifest`: App-Konfiguration. Änderungen im Browser über GitHub **Edit file → Commit changes** speichern. Nach Updates bei Bedarf die Cache-Version in `sw.js` anheben.
+## Funktionen
 
-## Upgrade von V1.1 auf V1.2
-- Auf dem **gleichen Repository und unter der gleichen GitHub-Pages-Adresse** `app.js`, `style.css`, `sw.js`, `index.html` sowie ggf. weitere Projektdateien durch die neuen Versionen ersetzen. Keine ZIP als Einzeldatei in GitHub Pages hochladen.
-- **Zuerst Backup** in der alten App erstellen. Die V1.2 akzeptiert Backups des bisherigen Formats V1.1 (`version:1`) und lädt bestehende lokale Daten weiter, **sofern die Web-App am selben Ursprung und im selben Speicher-Kontext läuft**.
-- Danach online die veröffentlichte Seite aufrufen; App ggf. vollständig schließen und erneut öffnen, damit der neue Service-Worker seine Assets lädt. Beim Wechsel von Safari zur Home-Bildschirm-App sind Speicherstände nicht zwingend synchron; in diesem Fall per JSON-Backup übertragen.
-- Die Empfehlungshistorie und künftige Dienste werden zusätzlich im `coach`-Objekt gespeichert.
+- **Training A/B/C:** bestehende oder neue Pläne, Satzlogger mit Gewicht, Wdh., RIR, Methode, Aufwärmsätzen, Trainingsnotizen und lokaler Entwurfsspeicherung
+- **WINTER ARC 5.2:** optionaler Planwechsel unter **Mehr**; bestehende Pläne werden bei Migration ausdrücklich **nicht** ungefragt überschrieben
+- **Körperatlas:** anklickbare Front-/Rücken-Silhouette, direkte wöchentliche Arbeitssätze als Farbintensität, separates Umfangmodus
+- **17 Körperfelder:** Gewicht plus 16 Umfangmesspunkte, grafische Zeitverläufe
+- **Kalender:** Training A/B/C, Körpermessungen und Ausdauer pro Tag
+- **Strength Intelligence:** persönliche Bestleistungen, Satzgewichte, vorsichtige e1RM-Schätzung nur bis zehn Wiederholungen
+- **Daily Coach:** Schlaf-, Schicht-, Ermüdungs- und Rücken-Check-in; einfache, transparente Hinweise, keine medizinische Bewertung
+- **Weitere Funktionen:** Lauf- und AirBike-Protokoll, Dienstbelastung, Morgenroutine, Trainingshistorie, Planeditor
+- **Private Daten:** nur lokal im Browser/PWA-Kontext, JSON-Import/Export, keine Nutzerkonten, keine Datenbank und kein Tracking
+
+## Wichtige Unterschiede zur alten Version
+
+- V2 nutzt einen eigenen lokalen Datenspeicher `winterArcOS_v2`. Der bisherige Speicher `winterArcOS_v1` bleibt bestehen.
+- Bei gleichem Ursprung und gleichem Safari-/PWA-Speicherkontext werden gültige V1-Daten beim ersten Start automatisch in V2 **kopiert**.
+- Sonst: Unter **Mehr → JSON importieren** das alte V1-Backup auswählen. Der Import **ersetzt die aktuellen V2-Daten** erst nach Bestätigung.
+- Das persönliche Backup enthält Trainings-/Körper-/Dienstangaben. **Niemals in dieses öffentliche GitHub-Repository hochladen.**
+- Die in der alten App eingestellten A/B/C-Pläne bleiben nach Import erhalten. **Mehr → 5.2-Plan aktivieren** schaltet den neuen Trainingsplan ein, ohne historische Workout-Einträge zu löschen.
+
+## Installation
+
+Die vollständige Schritt-für-Schritt-Anleitung steht in `ANLEITUNG-iPHONE.txt`. Die HTML-Datei kann wegen JavaScript-Modulen nicht einfach zuverlässig als lokale Datei in `Dateien` gestartet werden. Sie benötigt Hosting über GitHub Pages oder einen vergleichbaren Webserver.
+
+### GitHub Pages
+
+1. Inhalte dieser ZIP entpacken.
+2. **Alle hier enthaltenen Programmdateien** in das Hauptverzeichnis (`/`) des Repositories `Winterwerk/Winter-Arc-OS` hochladen. Der ZIP-Inhalt darf **nicht** in einem zusätzlichen Unterordner landen.
+3. GitHub: **Settings → Pages → Deploy from a branch → main → / (root)**.
+4. Die von GitHub Pages angezeigte Webadresse auf dem iPhone in Safari öffnen.
+5. Über **Teilen → Zum Home-Bildschirm hinzufügen** als PWA installieren.
+
+## Kompatibilität
+
+- GitHub Pages: ohne Build-Schritt, Node, Framework, Server oder externe Libraries.
+- Browser: aktuelle iPhone-Safari-Versionen und moderne Chromium/Firefox-Browser.
+- Nutzerdaten: kompatibel zu den in V1.2 exportierten JSON-Backups (`version: 1`).
+- Offline: die PWA kann nach erfolgreicher Erstinstallation statische Assets zwischenspeichern. JSON-Backups bleiben trotzdem notwendig.
+
+## Hinweise zu Anzeigen und Benchmarks
+
+- Muskel-Heatmap: zählt direkte Arbeitssätze; indirekte Arbeit wird als heuristische 0,5-Satz-Anteile ausgewiesen.
+- Das ist **keine** Messung von tatsächlichem Muskelwachstum, Regeneration oder Sehnenstärke.
+- Geräte- und Übungsvarianten sowie Trainingsmethoden können nicht ohne Weiteres miteinander verglichen werden.
+- Externe Profi-Vergleichsgewichte: nur datierte und quellenverlinkte Presse-/Athletenangaben (in **Analyse**), keine fingierten Wettkampf-Waageprotokolle und keine Kraft-Vergleichswerte.
+- Die App ersetzt keine ärztliche Diagnostik oder individuelle medizinische Belastungsfreigabe.
+
+## Quellcode
+
+| Datei | Aufgabe |
+|---|---|
+| `index.html` | HTML und Einstiegspunkt |
+| `style.css` | Dark-Mode-Oberfläche / Mobile UI |
+| `app.js` | Ansichten, Formulare, Training, Coaching, Ereignisse |
+| `store.js` | Lokale Speicherung, V1→V2-Migration, Backup |
+| `data.js` | Standardplan 5.2, Muskel- und Körperfelder |
+| `atlas.js` | Muskelatlas und Satzzuordnung |
+| `charts.js` | Diagramme |
+| `benchmarks.js` | Offizielle Gewichtsklassen und Profi-Gewichtsvergleiche |
+| `DATENQUELLEN.md` | Quellen und Grenzen der Referenzdaten |
+| `sw.js` | Offline-Cache für statische Dateien |
+| `manifest.webmanifest` | PWA-Einstellungen |
+| `icon-180.png`, `icon-192.png`, `icon-512.png` | App-Icons |
+| `.nojekyll` | Optionale GitHub-Pages-Kompatibilitätsdatei |
+
+## Versionierung und Fehlerbehebung
+
+- Vor Upload immer ein lokales JSON-Backup sichern.
+- Nach Veröffentlichung die neue Seite **mit Internetverbindung** öffnen, ggf. App vollständig schließen und erneut öffnen, damit der neue Service Worker übernommen wird.
+- Wenn alte Daten fehlen: in der **richtigen** App-Instanz prüfen (Safari-Tab und Home-Bildschirm-PWA können unterschiedliche Speicher haben), sonst die JSON-Datei importieren.
+- Bei Fehlern Screenshot, genaue Schritte und ggf. relevante Fehlermeldung sichern. Keine privaten Backups im öffentlichen GitHub-Issue posten.
+
+Version: **2.1.0** · 03.11.2026
