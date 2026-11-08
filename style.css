@@ -51,3 +51,101 @@
 .bench-legend-dot{display:inline-block;vertical-align:middle;height:12px;width:3px;background:#d5a66b;margin-right:4px}
 @media(max-width:740px){.bench-athletes{grid-template-columns:1fr}.bench-standards{grid-template-columns:1fr}}
 @media(max-width:390px){.bench-classes{grid-template-columns:1fr}.bench-profile{display:grid}.bench-current{text-align:left}}
+/* WINTER ARC 2.2 – kompakter Trainingsmodus, Lexikon, Timer und Kraftvergleiche */
+:root{--surface2:#18283b;--green:#8ddbc3}
+[hidden],.rest-dock[hidden]{display:none!important}
+@media(max-width:740px){
+ .top{margin-bottom:12px;padding-top:calc(12px + env(safe-area-inset-top,0px))}
+ .head-title{padding-top:12px;padding-bottom:12px}
+ .head-title h1{font-size:27px;margin:3px 0 2px}
+ .head-title p{font-size:12px}
+ .head-title .eyebrow{font-size:9px;margin-bottom:2px}
+ .panel{border-radius:15px}
+ .exercise{padding:13px}
+ .exercise-head h3{font-size:16px}
+ .exercise-head small{font-size:10px}
+}
+.exercise-head h3{line-height:1.25}
+.exercise-tools{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 8px}
+.exercise-tools details{border:1px solid #3b5470;border-radius:10px;background:#1c2c41;min-width:115px;max-width:100%;flex:1 1 120px}
+.exercise-tools details[open]{flex-basis:100%}
+.exercise-tools summary{cursor:pointer;list-style:none;padding:8px 11px;font-size:12px;font-weight:800;color:#d5eaff}
+.exercise-tools summary::-webkit-details-marker{display:none}
+.exercise-info{border-top:1px solid #3b5470;padding:12px;color:#c4d6e9;font-size:12px;line-height:1.6}
+.exercise-info ul{margin:8px 0;padding-left:18px}
+.exercise-info li{margin-bottom:5px}
+.exercise-info p{margin:8px 0 0}
+.exercise-swap p{padding:0 11px}
+.exercise-swap select{margin:0 10px 11px;width:calc(100% - 20px)}
+.swap-label{display:inline-block;font-size:10px;font-weight:800;background:#254e49;color:#a7e8ce;padding:3px 7px;border-radius:6px;margin:3px 0 5px}
+.rir-hint{color:#9dbfdb;font-size:11px;margin:7px 0 0}
+.set-method{padding:0;margin:9px 0 0;border-top:1px solid #345068}
+.set-method summary{font-size:11px;list-style:none;padding-top:9px;cursor:pointer;color:#aacde7}
+.set-method summary::-webkit-details-marker{display:none}
+.set-method label{margin-top:7px}
+.more-menu{position:sticky;top:0;z-index:10;background:#0e1724;border:1px solid #25374d;margin-top:0}
+.more-menu button{min-width:0;font-size:12px;padding:10px 2px}
+.lexicon-heading{margin:18px 0 9px;font-size:14px;color:#c6def4}
+.knowledge-item{border-bottom:1px solid #2e3e50;padding:9px 2px;font-size:13px}
+.knowledge-item summary{display:flex;gap:8px;justify-content:space-between;align-items:center;cursor:pointer}
+.knowledge-item summary>span{font-weight:700}
+.knowledge-item summary small{font-size:10px;color:var(--muted);text-align:right}
+.knowledge-item p{margin:9px 0 5px;color:#d0dfef}
+.knowledge-item ul{padding-left:20px;color:#bacbda;line-height:1.65}
+.knowledge-item li{padding:3px 0}
+.rest-dock{position:fixed;z-index:65;left:50%;transform:translateX(-50%);bottom:calc(80px + env(safe-area-inset-bottom,0px));width:min(500px,calc(100vw - 18px));background:#263d56;border:1px solid #75a4c6;border-radius:16px;padding:10px 12px 9px;box-shadow:0 18px 55px #000b}
+.rest-dock-top{display:flex;align-items:start;justify-content:space-between;gap:6px}
+.rest-dock-top>div{min-width:0;display:flex;flex-direction:column;gap:2px}
+.rest-dock-top small{color:#9edbbd;font-size:9px;letter-spacing:.13em;font-weight:800}
+.rest-dock-top strong{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rest-close{font-size:18px;border:0;color:#fff;background:transparent;min-width:28px}
+.rest-dock-main{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+.rest-value{font-size:31px;letter-spacing:-.06em;font-weight:900;font-variant-numeric:tabular-nums}
+.rest-dock-actions{display:flex;gap:5px}
+.rest-dock-actions button{border-radius:7px;background:#1a2b42;border:1px solid #57748f;color:#dbe9fc;font-size:10px;padding:7px 8px}
+.rest-progress{height:4px;border-radius:3px;overflow:hidden;margin-top:7px;background:#45637b}
+.rest-progress i{height:100%;background:#a9d0e8;display:block;border-radius:3px;transition:width .45s linear}
+.strength-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0}
+.strength-controls label{font-size:12px;color:var(--muted);font-weight:800;display:grid;gap:6px}
+.strength-personal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.strength-personal>div{background:#1c2d42;border-radius:12px;border:1px solid #334963;padding:12px;display:flex;flex-direction:column;gap:5px}
+.strength-personal small{font-size:9px;letter-spacing:.09em;color:#9fb3ca}
+.strength-personal strong{font-size:18px}
+.strength-personal span{font-size:10px;color:#aec4da}
+.legend-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
+.legend-card{border:1px solid #33465f;background:#1a2a3e;border-radius:13px;padding:14px;min-width:0}
+.legend-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.legend-head>div{display:grid;gap:5px;min-width:0}
+.legend-head strong{font-size:14px}
+.legend-head small{font-size:11px;color:var(--muted)}
+.legend-number{white-space:nowrap;font-size:24px;font-weight:900;letter-spacing:-.04em}
+.legend-number span{font-size:11px;color:var(--muted)}
+.legend-number small{display:block;text-align:right;font-size:11px;letter-spacing:0}
+.legend-meta{display:flex;justify-content:space-between;gap:5px;margin:13px 0 7px;color:#97c0d7;font-size:10px}
+.legend-card details{border-top:1px solid #344963;margin-top:9px;padding-top:7px;font-size:11px}
+.legend-card details summary{cursor:pointer;color:#b9d5ef}
+.legend-card details p{color:#bacddf;margin:7px 0}
+.legend-card details a{color:var(--accent)}
+.strength-add{margin-top:14px;border:1px solid #34506d;background:#1a2b41;border-radius:12px;padding:13px}
+.strength-add summary{cursor:pointer;font-weight:850;color:#d8e8fa}
+.strength-add form{margin-top:15px}
+@media(max-width:680px){.legend-list{grid-template-columns:1fr}}
+@media(max-width:380px){.strength-controls,.strength-personal{grid-template-columns:1fr}.rest-dock-main{flex-direction:column;align-items:stretch}.rest-dock-actions{justify-content:space-between}.rest-dock-actions button{flex:1}}
+
+.legend-progress{height:7px;background:#26394d;border-radius:8px;margin:9px 0 5px;overflow:hidden}.legend-progress i{height:100%;display:block;background:linear-gradient(90deg,#6b9dc0,#b4e4dd);border-radius:8px}.legend-ratio{display:block;color:#9bb5cc;font-size:10px;line-height:1.4}.rest-dock[hidden]{display:none!important}
+/* 2.3 – Mobile-first dashboard, flexible live sets, library and summaries */
+.dash-hero{background:linear-gradient(120deg,#1d364e,#131f2f);border:1px solid #426587;border-radius:17px;padding:22px;box-shadow:var(--shadow)}
+.dash-hero h2{font-size:clamp(23px,4vw,32px);margin:4px 0 8px}.dash-hero p{font-size:12px;color:#bed2e3;margin:0 0 12px;line-height:1.55}
+.quick-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:15px 0}.quick-links button{background:#1b2a3d;border:1px solid #344b63;padding:13px 5px;border-radius:12px;font-weight:750;font-size:12px}
+.dashboard-expand>summary,.directory-expand>summary{font-weight:800;color:#d9edff;cursor:pointer;list-style:none;padding:4px 2px}.dashboard-expand>summary::-webkit-details-marker{display:none}.dashboard-expand[open]>summary{margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:13px}
+.live-ex-actions,.set-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:12px 0 5px}.live-ex-actions button{min-width:38px}.live-ex-actions button[disabled]{opacity:.35;cursor:default}.set-actions{justify-content:space-between}.set-actions span{font-size:10px;color:var(--muted)}
+.set-title{justify-content:flex-start;flex-wrap:wrap}.set-title>strong{margin-right:auto}.set-title .last-set-copy{max-width:100%;font-size:10px;background:#203b4d;color:#bbe2ed;border-color:#43687a}.set-title .danger{padding:4px 8px;min-width:25px}
+.exercise-swap input[type="search"]{margin:0 10px 8px;width:calc(100% - 20px);min-height:40px;font-size:14px}.exercise-info label{display:grid;gap:6px;font-size:12px;margin:8px 0}.exercise-info textarea{font-size:14px}
+.calc-results{background:#1b3144;border:1px solid #42627c;border-radius:10px;padding:12px;font-size:12px;line-height:1.9;margin-top:13px}.calc-results>div{border-top:1px solid var(--line);margin-top:7px;padding-top:7px}
+.skipped-panel>summary{cursor:pointer;font-size:13px;font-weight:800}.skipped-panel{margin-top:12px}
+.range-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:12px 0 13px}.range-tabs button{background:#19283a;border:1px solid var(--line);border-radius:9px;padding:9px 4px;font-size:11px;font-weight:750}.range-tabs button.active{background:#304b64;border-color:#74a4cc;color:white}
+.library-controls{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:7px;margin:12px 0}.library-controls input,.library-controls select{font-size:13px;min-width:0}.library-list{max-height:430px;overflow:auto;overscroll-behavior:contain;border:1px solid #34495d;border-radius:12px;background:#162438}.library-item{padding:10px 12px;border-bottom:1px solid #2c4056}.library-item:last-child{border-bottom:0}.library-item>summary{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;list-style:none}.library-item>summary::-webkit-details-marker{display:none}.library-item>summary strong{font-size:12px;line-height:1.3}.library-item>summary small{font-size:10px;color:var(--muted);text-align:right;min-width:82px}.library-item p{margin:9px 0 6px;color:#c6dbec;font-size:12px}.library-item ul{font-size:11px;color:#b8ccdf;padding-left:19px;line-height:1.65}.library-item button{margin-top:7px}
+.directory-expand{margin-top:18px;border:1px solid #38516c;background:#1a2a3b;border-radius:13px;padding:13px}.directory-expand>summary{font-size:13px}
+.finish-summary h2{margin-bottom:16px;font-size:25px}.finish-summary h3{font-size:15px;margin:22px 0 11px}.finish-summary li{margin:7px 0;font-size:13px}.muscle-pills{display:flex;flex-wrap:wrap;gap:7px}.muscle-pills span{padding:7px 10px;border:1px solid #456380;background:#223c50;color:#d7e7f4;border-radius:999px;font-size:11px;font-weight:700}
+@media(max-width:740px){.quick-links{grid-template-columns:repeat(2,minmax(0,1fr))}.library-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.library-controls input{grid-column:1/-1}.dash-hero{padding:17px}.finish-summary h2{font-size:21px}.exercise-tools details{min-width:105px}}
+@media(max-width:380px){.set-title .last-set-copy{flex-basis:100%;text-align:left}.library-item>summary{flex-wrap:wrap}.library-item>summary small{text-align:left}}

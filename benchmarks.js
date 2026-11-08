@@ -40,8 +40,8 @@ const kg=x=>Number(x).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFra
 const sign=x=>(x>0?'+':'')+kg(x);
 const athletePhase=p=>p==='stage'?'Bühne / Wettkampf':'Offseason';
 
-export function physiqueBenchmarks({heightCm=201,weightKg=null,phase='all'}={}){
- const height=Number(heightCm)||201;
+export function physiqueBenchmarks({heightCm=180,weightKg=null,phase='all'}={}){
+ const height=Number(heightCm)||180;
  const w=Number(weightKg),hasWeight=weightKg!==null&&weightKg!==''&&Number.isFinite(w)&&w>0;
  const pro=classicLimit(height),npc=classicLimit(height,NPC_CLASSIC);
  const chosen=ATHLETE_WEIGHTS.filter(a=>phase==='all'||a.phase===phase).sort((a,b)=>a.name.localeCompare(b.name,'de')||a.weightKg-b.weightKg);

@@ -1,4 +1,4 @@
-export const APP_VERSION='2.1.0';
+export const APP_VERSION='2.3.0';
 export const PLAN_VERSION='WINTER ARC 5.2 · Oldschool Intensity';
 export const GROUPS={
  chest:'Brust',back:'Rücken',delts:'Schultern',biceps:'Bizeps',triceps:'Trizeps',traps:'Trapez',
@@ -15,6 +15,15 @@ export const BODY_FIELDS=[
 ];
 // direct=1, indirect=0.5: display heuristic, not physiological measurement.
 export const MUSCLE_RULES={
+ // Alternative exercises: use actual movement for the heatmap, never the occupied original machine.
+ 'bench-flat-db':[['chest',1],['triceps',.5],['delts',.5]],
+ 'machine-row-supported':[['back',1],['biceps',.5],['traps',.5]],
+ 'assisted-pullup':[['back',1],['biceps',.5]],
+ 'hack-squat-machine':[['quads',1],['glutes',.5]],
+ 'calf-legpress':[['calves',1]],
+ 'dead-bug':[['core',1]],
+ 'rotation-band':[['delts',.5]],
+ 'rotation-side-db':[['delts',.5]],
  'chest-incline':[['chest',1],['triceps',.5],['delts',.5]],
  'chest-flat':[['chest',1],['triceps',.5],['delts',.5]],
  'chest-incline-db':[['chest',1],['triceps',.5],['delts',.5]],
@@ -97,4 +106,3 @@ export const DEFAULT_PLANS={
 };
 export const EXERCISE_LABELS={A:'Upper Mass & Width',B:'Lower Mass & Stability',C:'Upper Density & Arms'};
 export const SHIFT_LABELS={early:'Frühdienst',day:'Tagesdienst',night:'Nachtdienst',postnight:'Ausruhtag nach Nacht',free:'Frei'};
-export const STARTING_BODY={date:'2026-10-15',weight:103.9,neck:43,shoulders:118,chest:106,waistNatural:91,waist:100,hips:109,armLeftFlexed:40,armRightFlexed:40,armLeftRelaxed:37,armRightRelaxed:37.5,forearmLeft:32,forearmRight:31.5,thighLeft:64,thighRight:65,calfLeft:40.5,calfRight:41};

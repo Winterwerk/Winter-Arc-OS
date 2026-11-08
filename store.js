@@ -3,18 +3,19 @@ export const STORAGE_KEY='winterArcOS_v2';
 export const LEGACY_KEY='winterArcOS_v1';
 export const clone=x=>JSON.parse(JSON.stringify(x));
 export function freshState(){return {
- version:2,plans:clone(DEFAULT_PLANS),workouts:[],runs:[],body:[],duty:[],morning:{},draft:null,
+ version:2,plans:clone(DEFAULT_PLANS),workouts:[],runs:[],body:[],duty:[],morning:{},draft:null,strengthEntries:[],restTimer:null,exerciseNotes:{},
  coach:{checkins:{},shifts:{},longPlans:{}},
- settings:{raceDate:'2027-06-06',goalPace:'5:30',raceName:'Halbmarathon',trainPhase:'einstieg',activeProgram:'5.2',goal:'Offseason Mass',heightCm:201},
+ settings:{raceDate:'',goalPace:'5:30',raceName:'Halbmarathon',trainPhase:'einstieg',activeProgram:'5.2',goal:'Offseason Mass',heightCm:null,autoRest:true,restSeconds:150,exerciseRest:{}},
  meta:{createdAt:new Date().toISOString(),migratedFromLegacy:false}
 }}
 export function migrate(raw){
  if(!raw||typeof raw!=='object'||![1,2].includes(Number(raw.version)))throw new Error('Nur Backups der Version 1 oder 2 sind kompatibel.');
  if(!Array.isArray(raw.workouts)||!Array.isArray(raw.body)||!Array.isArray(raw.runs)||!raw.plans||!['A','B','C'].every(k=>Array.isArray(raw.plans[k])))throw new Error('Backup unvollständig oder ungültig.');
  const defaults=freshState();
- const clean={...defaults,plans:clone(raw.plans),workouts:clone(raw.workouts),body:clone(raw.body),runs:clone(raw.runs),duty:clone(Array.isArray(raw.duty)?raw.duty:[]),morning:clone(raw.morning||{}),draft:clone(raw.draft||null),coach:{...defaults.coach,...clone(raw.coach||{})},settings:{...defaults.settings,...clone(raw.settings||{})},meta:{...defaults.meta,...clone(raw.meta||{}),migratedFromLegacy:Number(raw.version)===1||!!raw.meta?.migratedFromLegacy}};
+ const clean={...defaults,plans:clone(raw.plans),workouts:clone(raw.workouts),body:clone(raw.body),runs:clone(raw.runs),duty:clone(Array.isArray(raw.duty)?raw.duty:[]),morning:clone(raw.morning||{}),draft:clone(raw.draft||null),strengthEntries:clone(Array.isArray(raw.strengthEntries)?raw.strengthEntries:[]),restTimer:clone(raw.restTimer||null),exerciseNotes:clone(raw.exerciseNotes||{}),coach:{...defaults.coach,...clone(raw.coach||{})},settings:{...defaults.settings,...clone(raw.settings||{})},meta:{...defaults.meta,...clone(raw.meta||{}),migratedFromLegacy:Number(raw.version)===1||!!raw.meta?.migratedFromLegacy}};
  // Keep historical exercise IDs, names, notes and personal entries byte-for-byte as data, never create example sessions.
  if(Number(raw.version)===1)clean.settings.activeProgram='legacy-1.2';
+ clean.settings.exerciseRest=clean.settings.exerciseRest&&typeof clean.settings.exerciseRest==='object'?clean.settings.exerciseRest:{};
  clean.version=2;
  return clean;
 }

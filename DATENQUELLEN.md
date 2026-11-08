@@ -1,41 +1,23 @@
-# WINTER ARC OS 2.1 – Datenquellen der Gewichts-Benchmarks
+# Datenquellen WINTER ARC 2.2 – Kraft und Bodybuilding
 
-Datenstand: 03.11.2026. Die Werte sind Momentaufnahmen, keine gesundheitlichen Empfehlungen und keine Aussagen über individuelle Muskelmasse oder Fettanteile.
+**Stand: 7. November 2026.** Quellen sind in der App offline als URLs hinterlegt; das Öffnen der Quellen benötigt Internet. Keine automatische Aktualisierung.
 
-## Offizielle Wettkampflimits
+## Strongman / Wettkampf
 
-- IFBB Pro League, *Pro Competition Rules*, Stand 30.09.2026: https://www.ifbbpro.com/rules/
-- NPC Worldwide, *NPC Worldwide Rules*, Stand 25.10.2026: https://www.ifbbpro.com/npc-worldwide/rules/
+- **Raul Flores, 511 kg Kreuzheben**, World Deadlift Championships, Birmingham, **05.09.2026**. Bestätigt im Veranstalterbericht vom 06.09.2026: https://giants-live.com/news/thor-retains-open-title-as-flores-pulls-511kg/
+- **Hafþór Júlíus Björnsson, 510 kg Kreuzheben**, World Deadlift Championships, Birmingham, 06.09.2025: https://giants-live.com/news/bjornsson-smashes-510kg-to-take-both-titles-in-birmingham/
+- **Eddie Hall, 500 kg Kreuzheben**, World Deadlift Championships, Leeds, 09.07.2016 (damals historischer Rekord): https://giants-live.com/athlete/eddie-hall/
+- **Eddie Hall, 213 kg Log Lift**, Wettbewerb 2017, nach Giants Live: https://giants-live.com/athlete/eddie-hall/
 
-Diese Quellen beschreiben **Maximalgewichte bei der Einwaage**, keine Durchschnitts- oder Zielgewichte. *Men's Open* besitzt kein oberes Gewichtslimit. *Men's 212* ist auf 212 lb begrenzt. Die Classic-Physique-Tabellen der IFBB Pro League und NPC Worldwide sind **nicht identisch**.
+## Bodybuilding / Trainingsleistungen
 
-Für genau 201 cm gilt die oberste Tabellenzeile **über 200,7 cm**:
-- IFBB Pro League Classic Physique: **128,8 kg** (284 lb)
-- NPC Worldwide Amateur Classic Physique: **124,3 kg** (274 lb)
+- **Ronnie Coleman, ca. 363 kg × 2 Kreuzheben** (800 lb) im Training, „The Unbelievable“, aufgezeichnet um 2000. Video vom Athleten: https://www.youtube.com/watch?v=ua8oObEPptQ
+- **Ronnie Coleman, ca. 363 kg × 2 Kniebeuge** (800 lb) im Training, „The Cost of Redemption“, um 2003. Video vom Athleten: https://www.youtube.com/watch?v=LVVdlwf1iyM
+- **Ronnie Coleman, ca. 227 kg × 5 Bankdrücken** (500 lb), berichtete Trainingsleistung: https://ronniecoleman.net/pages/youtube-2
+- **Eddie Hall, 300 kg Bankdrücken**, laut Giants Live persönliche Trainingsbestleistung, Zeitpunkt nicht sicher: https://giants-live.com/athlete/eddie-hall/
 
-## Historische und berichtete Athletengewichte
+**Einordnung:** Wettkampfergebnisse, dokumentierte Trainingsvideos und nachträglich berichtete Gym-Rekorde haben unterschiedliche Quellenqualität. Strongman-Kreuzheben ist nicht identisch mit klassischem Raw-Powerlifting. Maschinenübungen, Kurzhantelübungen, Einzelwiederholungen und mehrere Wiederholungen sind nicht direkt vergleichbar. Die App zeigt nur ein rechnerisches Verhältnis, kein echtes Ranglistenperzentil.
 
-| Athlet | Angabe | Einordnung | Quelle |
-|---|---:|---|---|
-| Urs Kalecinski | ca. 118 kg | Open-Debüt 2025 (Wettkampf, Bericht) | https://www.repone.de/news/national/urs-kalecinski-spricht-ueber-seine-comeback-plaene/ |
-| Urs Kalecinski | ca. 133,8 kg | Offseason, Interviewbericht Oktober 2026 (ca. 295 lb) | https://fitnessvolt.com/urs-kalecinski-hints-2027-new-york-pro-and-pittsburgh-pro/ |
-| Arnold Schwarzenegger | ca. 106,6 kg | Mr. Olympia 1975, historischer Bericht (235 lb) | https://thebarbell.com/1975-mr-olympia/ |
-| Lou Ferrigno | ca. 121,6 kg | Mr. Olympia 1975, historischer Bericht (268 lb) | https://thebarbell.com/1975-mr-olympia/ |
-| Dorian Yates | ca. 120,2 kg | Mr. Olympia 1997, historischer Bericht (265 lb) | https://gmvbodybuilding.com/v-213c-download/ |
-| Dorian Yates | ca. 138,3 kg | Historischer Offseason-Profilwert (305 lb) | https://www.muscleandfitness.com/flexonline/the-heavy-duty-life-and-career-of-dorian-yates/ |
-| Ronnie Coleman | ca. 134,3 kg | Profilwert für Wettkampfphase (296 lb), kein genaues Datum | https://www.muscleandfitness.com/athlete/ronnie-coleman/ |
-| Chris Bumstead | ca. 102,1 kg | Historisches Classic-Physique-Bühnengewicht aus Interview von 2018 (225 lb) | https://www.muscleandfitness.com/athletes-celebrities/interviews/how-chris-bumstead-could-become-first-classic-physique-superstar/ |
+## Bodybuilding-Trainingslexikon
 
-**Alle Athletengewichte sind journalistisch berichtete, historische oder von Athleten selbst genannte Angaben.** Keiner der hier verwendeten Werte ist als amtlich bestätigtes offizielles Wettkampf-Waageprotokoll gekennzeichnet. Quellen und Genauigkeitskennzeichnung sind in der App sichtbar.
-
-Größenquellen: historische Gewichts-/Athletenprofile wie oben; für Urs 180,5 cm nach berichteter Athletenangabe: https://www.gannikus.de/hot-stuff/urs-kalecinski-das-deutsch-polnische-wunderkind-im-portraet/.
-
-**Mike Gaiera / Tren Twins:** Mangels einer eindeutig verifizierten Gewichtsangabe keine Zahl eingepflegt. Profi-Status und Wettkampfwerte werden nicht aus sozialen Medien oder einem ungeprüften Steckbrief erfunden.
-
-## Implementierung
-
-- `benchmarks.js` enthält die Offline-Daten und Filterfunktionen.
-- Körpergröße wird unter **Analyse → Wettkampflimits** bearbeitet und bleibt im privaten lokalen Speicher.
-- Das eigene Vergleichsgewicht wird ausschließlich aus dem zuletzt dokumentierten Gewicht im lokalen Körperlog ausgelesen.
-- Es werden keine persönlichen Daten an Websites der Athleten oder Verbände übertragen. Ein vom Nutzer aktiv geöffnetes Quellenlink ist eine externe Website.
-- Die Tabellen müssen bei Änderungen der offiziellen Regeln redaktionell aktualisiert werden.
+Die App gibt kompakte, allgemeine Trainingshinweise. Die Übungsalternativen beruhen auf ähnlichen Bewegungsmustern und Muskelgruppen, ersetzen aber keine individuelle Technikprüfung und sind nicht mechanisch identisch.

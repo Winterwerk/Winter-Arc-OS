@@ -1,0 +1,16 @@
+/* Historische & offizielle Strength-Benchmarks (redaktioneller Datenstand 2026-11-07).
+   Kein direkter Leistungsvergleich unterschiedlicher Regelwerke/Ausrüstung. */
+export const LIFTS={deadlift:'Kreuzheben',squat:'Kniebeuge',bench:'Bankdrücken',log:'Log Lift'};
+export const STRENGTH_BENCHMARKS=[
+ {id:'flores-511',athlete:'Raul Flores',lift:'deadlift',weightKg:511,reps:1,year:2026,level:'Wettkampf',competition:'World Deadlift Championships · Birmingham, 05.09.2026',rules:'Strongman-Regeln und Ausrüstung; nicht Raw-Powerlifting.',source:'https://giants-live.com/news/thor-retains-open-title-as-flores-pulls-511kg/',quality:'Veranstalterbericht'},
+ {id:'thor-510',athlete:'Hafþór Júlíus Björnsson',lift:'deadlift',weightKg:510,reps:1,year:2025,level:'Wettkampf',competition:'World Deadlift Championships · Birmingham, 06.09.2025',rules:'Strongman-Wettkampf mit erlaubten Hilfsmitteln.',source:'https://giants-live.com/news/bjornsson-smashes-510kg-to-take-both-titles-in-birmingham/',quality:'Veranstalterbericht'},
+ {id:'eddie-500',athlete:'Eddie Hall',lift:'deadlift',weightKg:500,reps:1,year:2016,level:'Wettkampf',competition:'World Deadlift Championships · Leeds, 09.07.2016',rules:'Strongman-Regeln; historischer Meilenstein, nicht aktueller Rekord.',source:'https://giants-live.com/athlete/eddie-hall/',quality:'Veranstalterprofil'},
+ {id:'ronnie-dead',athlete:'Ronnie Coleman',lift:'deadlift',weightKg:363,reps:2,year:2000,level:'Trainingsvideo',competition:'The Unbelievable (Training, ca. 800 lb)',rules:'Trainingsleistung, kein offizielles Wettkampfergebnis; auf 363 kg gerundet.',source:'https://www.youtube.com/watch?v=ua8oObEPptQ',quality:'Video des Athleten'},
+ {id:'ronnie-squat',athlete:'Ronnie Coleman',lift:'squat',weightKg:363,reps:2,year:2003,level:'Trainingsvideo',competition:'The Cost of Redemption (ca. 800 lb)',rules:'Trainingsleistung; Bewegungsstandard und Ausrüstung nicht mit Powerlifting identisch.',source:'https://www.youtube.com/watch?v=LVVdlwf1iyM',quality:'Video des Athleten'},
+ {id:'ronnie-bench',athlete:'Ronnie Coleman',lift:'bench',weightKg:227,reps:5,year:2003,level:'Berichtete Trainingsleistung',competition:'The Cost of Redemption (ca. 500 lb)',rules:'Keine geprüfte Wettkampfbestleistung, Trainingsangabe.',source:'https://ronniecoleman.net/pages/youtube-2',quality:'Athletenprofil'},
+ {id:'eddie-bench',athlete:'Eddie Hall',lift:'bench',weightKg:300,reps:1,year:null,level:'Berichtete Trainingsleistung',competition:'Persönliche Gym-Bestleistung, Datum unbekannt',rules:'Gym-Rekord laut Veranstalterprofil; Jahr nur grob eingeordnet, kein Wettkampfrecord.',source:'https://giants-live.com/athlete/eddie-hall/',quality:'Veranstalterprofil'},
+ {id:'eddie-log',athlete:'Eddie Hall',lift:'log',weightKg:213,reps:1,year:2017,level:'Wettkampf',competition:'World Log Lift Championships, 2017',rules:'Strongman-Log-Lift, nicht mit Langhantel-Schulterdrücken vergleichbar.',source:'https://giants-live.com/athlete/eddie-hall/',quality:'Veranstalterprofil'}
+];
+export const STRENGTH_REFERENCES_UPDATED='07.11.2026';
+export const fmtStrength=n=>Number(n).toLocaleString('de-DE',{maximumFractionDigits:1});
+export function estimated1rm(weight,reps){const w=Number(weight),r=Number(reps);if(!Number.isFinite(w)||w<=0||!Number.isFinite(r)||r<1||r>10)return null;return r===1?w:w*(1+r/30);}
