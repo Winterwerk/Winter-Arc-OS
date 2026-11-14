@@ -1,0 +1,69 @@
+WINTER ARC OS · V2.4.0 – GITHUB-UPDATE
+=====================================
+
+WICHTIG VOR DEM UPDATE
+1. In deiner bestehenden App öffnen: Mehr → Backup → JSON exportieren.
+2. Die JSON-Datei ausschließlich privat sichern (Dateien-App / iCloud Drive).
+3. Niemals persönliche Trainingsdaten/JSON-Backups in das öffentliche GitHub-Repository hochladen.
+
+VARIANTE A – NUR GEÄNDERTE DATEIEN HOCHLADEN (EMPFOHLEN)
+1. Die Datei WINTER-ARC-OS-v2.4-NUR-UPDATE.zip in der Dateien-App entpacken.
+2. GitHub-Repository öffnen: https://github.com/Winterwerk/Winter-Arc-OS
+3. In das Root-Verzeichnis des Repositorys den INHALT des entpackten Ordners hochladen,
+   nicht die ZIP-Datei. Gleichnamige Dateien ersetzen.
+4. Neue Dateien: focus-ui.css, focus-ui.js, plan73.js sowie diese Anleitung.
+   Geänderte Dateien: app.js, data.js, library.js, training-tools.js,
+   index.html, sw.js, README.md, manifest.webmanifest und Testbericht.
+5. Prüfen, ob der Commit auf Branch main erschienen ist.
+6. GitHub Pages in Safari neu laden. Die App zeigt V2.4.0 im Kopf.
+
+VARIANTE B – VOLLSTÄNDIGES REPOSITORY-PAKET
+1. WINTER-ARC-OS-v2.4-GitHub.zip entpacken.
+2. Sämtliche Dateien direkt im Repository-Root hochladen.
+3. Alte Dateien mit gleichem Namen ersetzen, keine privaten JSON-Daten hochladen.
+
+NEUES DESIGN
+- Anthrazit/Schwarz, helle Schrift, keine blaue Akzentfarbe.
+- Desktop: permanente Seitenleiste links.
+- iPhone: Menü über ☰ öffnen.
+- Startseite: Schaltfläche „Workout starten“.
+- Training zeigt im Fokusmodus eine Übung; der Button „Übungen“ öffnet die Reihenfolge.
+- Vor/Zurück springt zwischen Übungen, nicht zwischen den Sätzen.
+- Zielmuskel, drei Ausführungshinweise, letzte Leistung und gegebenenfalls
+  eine einfache, unverbindliche Wiederholungs-/Gewichtsempfehlung werden angezeigt.
+- Unterhalb der Hinweise bleiben Satzfelder, Satzpausentimer, Übungsalternativen,
+  eigene Notizen und Satzabschluss verfügbar.
+- „Übersicht“ verlässt nur den Fokusmodus; der Entwurf bleibt gespeichert.
+- „Training abschließen“ nutzt die bisherige Speicherfunktion.
+
+DEIN 5-TAGE-PLAN
+- Der bestehende A/B/C-Plan bleibt nach dem Update aktiv.
+- Um deinen abgestimmten Plan zu aktivieren:
+  Menü ☰ → Mehr → Trainingsplan → „7.3 · 5-Tage-Plan aktivieren“.
+- Dann stehen A, B, C, D, E zur Verfügung:
+  A Upper A, B Lower A + Unterarme, C Brust & Rücken,
+  D Lower B + Core, E Schultern, Arme & Griffkraft.
+- Die bisherige Planauswahl wird beim Aktivieren intern archiviert.
+  Abgeschlossene Trainingsdaten bleiben gespeichert.
+- Für einen Rückwechsel: „Vorherigen Plan wiederherstellen“.
+- „Einstieg“/„Aufbau“ kann die Satzanzahl beeinflussen. Die 70 Sätze
+  sind die Grundvorlage, kein Pflichtvolumen; du kannst pro Übung Sätze entfernen.
+- Farmer's Holds: Das Feld „Sek.“ steht für Haltezeit; im internen Datensatz
+  ist es zusätzlich als holdSeconds markiert. Es wird nicht als Wiederholungsvolumen gerechnet.
+
+OFFLINE / FEHLERSUCHE
+- Die App braucht einmal einen erfolgreichen Online-Besuch, um die neuen Dateien zu cachen.
+- Bei alter Ansicht zuerst Safari neu laden und die PWA ganz schließen/neu öffnen.
+- Falls ein altes App-Icon installiert ist, im Safari-Tab das Update kontrollieren.
+- Der Browsercache wird mit dem neuen Service-Worker-Namen erneuert.
+- Persönliche Daten liegen lokal im Browser/PWA-Speicher. Eine PWA-Löschung
+  oder das Löschen von Websitedaten kann gespeicherte Daten entfernen!
+- Bei Problemen zuerst privaten JSON-Backup sichern; nicht auf Verdacht
+  lokale Daten löschen oder unüberlegt einen alten Backup-Stand importieren.
+
+GRENZEN
+- Die Empfehlungen sind einfache transparente Progressionsregeln, kein
+  medizinisches Urteil und keine garantierte Muskelwachstumsprognose.
+- Kein KI-Modell, keine Supabase-Synchronisierung und keine Cloud-Übertragung.
+- Echte iPhone/Safari-Gerätetests müssen nach dem Deployment erfolgen.
+- Ein direkter GitHub-Commit war hier durch die Connector-Rechte gesperrt (403).

@@ -1,8 +1,8 @@
-export const APP_VERSION='2.3.0';
+export const APP_VERSION='2.4.0';
 export const PLAN_VERSION='WINTER ARC 5.2 · Oldschool Intensity';
 export const GROUPS={
  chest:'Brust',back:'Rücken',delts:'Schultern',biceps:'Bizeps',triceps:'Trizeps',traps:'Trapez',
- core:'Rumpf',quads:'Quadrizeps',hamstrings:'Beinbeuger',glutes:'Gesäß',calves:'Waden',forearms:'Unterarme'
+ core:'Rumpf',quads:'Quadrizeps',hamstrings:'Beinbeuger',glutes:'Gesäß',adductors:'Adduktoren',calves:'Waden',forearms:'Unterarme'
 };
 export const BODY_FIELDS=[
  ['weight','Gewicht','kg'],['neck','Hals','cm'],['shoulders','Schultern','cm'],['chest','Brust','cm'],
@@ -43,6 +43,8 @@ export const MUSCLE_RULES={
  'glute-bridge':[['glutes',1]],'hip-abduction':[['glutes',1]],
  'calf-straight':[['calves',1]],'calf-bent':[['calves',1]],'calf-c':[['calves',1]],
  'pallof':[['core',1]],'sideplank':[['core',1]],'bird-dog':[['core',1]],
+ 'wa73-pec-deck':[['chest',1]],'wa73-lat-supinated':[['back',1],['biceps',.5]],'wa73-lat-row-hip':[['back',1],['biceps',.5]],
+ 'wa73-upright-ez':[['delts',1],['traps',.5]],'wa73-reverse-wrist':[['forearms',1]],'wa73-farmers-hold':[['forearms',1],['traps',.5]],'wa73-adductors':[['adductors',1]],
  'wrist-ext-c':[['forearms',1]],'wrist-ext-a':[['forearms',1]],'rotation-c':[['forearms',1]],
  'external-rotation-a':[['delts',.5]],'external-rotation-c':[['delts',.5]]
 };
@@ -64,7 +66,8 @@ export function estimateMuscles(exerciseId,name=''){
  if(/waden|calf/.test(n))return [['calves',1]];
  if(/hip.thrust|glute|abduktion/.test(n))return [['glutes',1]];
  if(/pallof|plank|bird.dog|curl.up/.test(n))return [['core',1]];
- if(/unterarm|handgelenk|pronation|supination/.test(n))return [['forearms',1]];
+ if(/adduktoren|adductor/.test(n))return [['adductors',1]];
+ if(/wrist|unterarm|handgelenk|pronation|supination/.test(n))return [['forearms',1]];
  return [];
 }
 export const DEFAULT_PLANS={

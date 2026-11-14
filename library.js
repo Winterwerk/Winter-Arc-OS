@@ -64,11 +64,20 @@ const added=[
  ['ab-wheel','Ab Wheel','core','Körpergewicht'],
  ['farmers-carry','Farmers Carry','forearms','Kurzhantel'],
  ['wrist-curl','Wrist Curls','forearms','Kurzhantel'],
- ['reverse-curl','Reverse Curls','forearms','Langhantel']
+ ['reverse-curl','Reverse Curls','forearms','Langhantel'],
+ ['wa73-reverse-wrist','Reverse Wrist Curls','forearms','Kurzhantel'],
+ ['wa73-farmers-hold',"Farmer's Holds",'forearms','Kurzhantel'],
+ ['wa73-pec-deck','Pec Deck / Butterfly','chest','Maschine'],
+ ['wa73-lat-supinated','Enger Untergriff-Latzug','back','Kabel'],
+ ['wa73-lat-row-hip','Einarmiges Kabelrudern zur Hüfte','back','Kabel'],
+ ['wa73-upright-ez','SZ-Upright Rows','delts','Langhantel'],
+ ['wa73-adductors','Adduktorenmaschine','adductors','Maschine'],
+ ['pendulum-squat','Pendulum Squat','quads','Maschine'],
+ ['wa73-45-back-extensions','45°-Back-Extensions','glutes','Körpergewicht']
 ];
-const extraCredits={chest:[['chest',1],['triceps',.5],['delts',.5]],back:[['back',1],['biceps',.5]],delts:[['delts',1]],traps:[['traps',1]],biceps:[['biceps',1]],triceps:[['triceps',1]],quads:[['quads',1],['glutes',.5]],hamstrings:[['hamstrings',1],['glutes',.5]],glutes:[['glutes',1]],calves:[['calves',1]],core:[['core',1]],forearms:[['forearms',1]]};
+const extraCredits={adductors:[['adductors',1]],chest:[['chest',1],['triceps',.5],['delts',.5]],back:[['back',1],['biceps',.5]],delts:[['delts',1]],traps:[['traps',1]],biceps:[['biceps',1]],triceps:[['triceps',1]],quads:[['quads',1],['glutes',.5]],hamstrings:[['hamstrings',1],['glutes',.5]],glutes:[['glutes',1]],calves:[['calves',1]],core:[['core',1]],forearms:[['forearms',1]]};
 const dedicated={
- 'deadlift-barbell':[['back',1],['glutes',.5],['hamstrings',.5],['traps',.5]],'romanian-deadlift':[['hamstrings',1],['glutes',.5]],'rdl-db':[['hamstrings',1],['glutes',.5]],'back-extension':[['glutes',1],['hamstrings',.5]],'farmers-carry':[['forearms',1],['traps',.5]],'facepull':[['delts',1],['back',.5]],'pullup':[['back',1],['biceps',.5]],'close-grip-bench':[['triceps',1],['chest',.5]],'hip-thrust-bar':[['glutes',1]]
+ 'deadlift-barbell':[['back',1],['glutes',.5],['hamstrings',.5],['traps',.5]],'romanian-deadlift':[['hamstrings',1],['glutes',.5]],'rdl-db':[['hamstrings',1],['glutes',.5]],'back-extension':[['glutes',1],['hamstrings',.5]],'farmers-carry':[['forearms',1],['traps',.5]],'facepull':[['delts',1],['back',.5]],'pullup':[['back',1],['biceps',.5]],'close-grip-bench':[['triceps',1],['chest',.5]],'hip-thrust-bar':[['glutes',1]],'wa73-adductors':[['adductors',1]],'wa73-farmers-hold':[['forearms',1],['traps',.5]],'wa73-upright-ez':[['delts',1],['traps',.5]]
 };
 for(const [id,,group] of added)MUSCLE_RULES[id]=dedicated[id]||extraCredits[group];
 function inferEquipment(id,name){const n=(name+' '+id).toLowerCase();if(/kurzhantel|dumbbell|db-|hammer curl/.test(n))return 'Kurzhantel';if(/kabel|cable|latzug|pulldown|seil/.test(n))return 'Kabel';if(/multipresse|smith/.test(n))return 'Multipresse';if(/langhantel|sz-|barbell|squat|deadlift/.test(n))return 'Langhantel';if(/plank|stütze|liegestütz|bird.dog/.test(n))return 'Körpergewicht';return 'Maschine'}

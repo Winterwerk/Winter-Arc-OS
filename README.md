@@ -1,4 +1,27 @@
-# WINTER ARC OS · V2.3.0
+# WINTER ARC OS · V2.4.0
+
+**Anthracite Focus UI + optionale WINTER ARC 7.3 Fünf-Tage-Vorlage.**
+
+## Neu in 2.4
+
+- Dunkel-anthrazitfarbene, kontrastreiche Oberfläche ohne blaues Standarddesign.
+- Seitenmenü: auf dem Desktop sichtbar, auf dem iPhone per ☰ ein- und ausklappbar.
+- **Workout starten → Fokusmodus**: exakt eine Übung mit Zielmuskel, drei Technikpunkten, letzten Leistungswerten, Satzeingaben und Timer.
+- **Übungen-Menü**: alle folgenden Übungen mit erledigten Sätzen; Navigation vor/zurück und direkter Sprung zu einer Übung.
+- **Unverbindlicher nächster Satz**: aus letztem vergleichbaren ersten Satz, Zielbereich und dokumentierter RIR berechneter Vorschlag. Dieser überschreibt keine Eingaben und ist bewusst kein Vorhersagemodell.
+- **WINTER ARC 7.3**: persönlicher 5-Tage-Plan mit 70 Grund-Arbeitssätzen, der über Mehr → Trainingsplan **optional aktiviert** werden kann. Der vorherige Plan wird beim Wechsel archiviert; historische Trainingseinheiten bleiben erhalten.
+- Farmer's Holds mit Sekunden-Eingabe und separatem holdSeconds-Merkmal. Haltezeiten werden nicht als Last×Wiederholungen-Volumen berechnet.
+- Alle vorhandenen V2.3-Module und lokalen Trainingsdaten bleiben verfügbar.
+
+**Update-Anleitung:** `ANLEITUNG-GITHUB-UPDATE-2.4.txt`. Vor dem Aktualisieren ein privates JSON-Backup exportieren. Kein Upload persönlicher JSON-Daten in das öffentliche GitHub-Repository.
+
+**Datenkompatibilität:** Der Speicherschlüssel `winterArcOS_v2` und das V2-Datenformat bleiben unverändert. Die neuen Planfelder sind optional. Kein erzwungener Planwechsel und keine automatische Löschung vorhandener Daten. 
+
+**Tests:** JavaScript-Syntax, Import- und Planstruktur, Dateibezüge, Persistenzmigration und Rechenregeln können lokal geprüft werden; ein echtes Safari-/iPhone-Livetesting war nicht möglich. Siehe `TESTBERICHT-2.4.md`.
+
+---
+
+# Historische Dokumentation · V2.3.0
 
 **Offlinefähige, lokale Trainings-, Körper- und Kraftanalyse-Web-App für iPhone und GitHub Pages.** Keine Kamera, keine Foto-/Video-Uploads und keine externen Konten. Alle persönlichen Daten verbleiben in der lokalen Browser-/PWA-Speicherung; Export/Import erfolgt nur nach eigener Auswahl.
 
