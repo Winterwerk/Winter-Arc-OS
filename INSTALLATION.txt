@@ -1,0 +1,34 @@
+WINTER ARC OS 2.4.1 – SOFORT-FIX
+===================================
+
+Fehler: V2.4.0 änderte bei jeder DOM-Beobachtung erneut denselben Button-Text.
+Dadurch entstand eine endlose Microtask-/MutationObserver-Schleife; die Seite
+konnte einfrieren oder nicht mehr auf Eingaben reagieren.
+
+WICHTIG: Keine Browserdaten, Cookies oder App-Speicher löschen.
+Persönliche Workouts liegen nur lokal; der Fix verändert den Datenschlüssel nicht.
+
+ANLEITUNG:
+1. Dieses ZIP in der iPhone-Dateien-App entpacken.
+2. ALLE sieben Dateien aus dem entpackten Ordner in das Root-Verzeichnis
+   https://github.com/Winterwerk/Winter-Arc-OS hochladen.
+3. Vorhandene gleichnamige Dateien ersetzen. Keinen Unterordner anlegen.
+4. Nach erfolgreichem GitHub-Pages-Deployment die App im Safari-Tab öffnen.
+5. Neu laden. Wenn eine installierte PWA weiterhin festhängt, komplett
+   schließen und nochmals öffnen. Ein Service-Worker-Aktualisierungslauf kann
+   einen zweiten Seitenaufruf benötigen. NICHT die PWA löschen.
+6. V2.4.1 im Kopf prüfen, Menü öffnen, 'Workout starten', Übungen anzeigen.
+
+DEIN 5-TAGE-PLAN:
+Bisheriger A/B/C-Plan wird nicht automatisch überschrieben.
+Über Mehr > Trainingsplan > '7.3 · 5-Tage-Plan aktivieren' aktivieren.
+
+FILES:
+focus-ui.js        behebt die Endlosschleife
+focus-ui.css       entfernt verbliebene blaue Eingabeelemente
+sw.js              erhöht Offline-Cache-ID auf v2.4.1
+data.js            ändert sichtbare App-Version auf v2.4.1
+index.html         ändert Browser-Titel auf v2.4.1
+manifest.webmanifest  setzt Splash/Theme auf Anthrazit
+
+Das Paket enthält KEINE persönlichen Daten und ersetzt KEINEN Trainingslogger.

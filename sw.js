@@ -1,5 +1,5 @@
-/* WINTER ARC OS 2.4 UI – static assets only; private user data never enters Cache Storage */
-const CACHE='winter-arc-os-v2.4.0';
+/* WINTER ARC OS 2.4.1 UI – static assets only; private user data never enters Cache Storage */
+const CACHE='winter-arc-os-v2.4.1';
 const ASSETS=['./','./index.html','./style.css','./focus-ui.css','./app.js','./focus-ui.js','./plan73.js','./data.js','./store.js','./atlas.js','./charts.js','./benchmarks.js','./lexicon.js','./strength.js','./library.js','./training-tools.js','./manifest.webmanifest','./icon-180.png','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('winter-arc-os-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));

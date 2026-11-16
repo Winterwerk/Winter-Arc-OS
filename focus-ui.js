@@ -135,7 +135,7 @@
       topbar.prepend(btn);
     }
     const homeButton = app?.querySelector('.dash-hero [data-start-day]');
-    if (homeButton) homeButton.textContent = 'Workout starten →';
+    if (homeButton && homeButton.textContent !== 'Workout starten →') homeButton.textContent = 'Workout starten →';
     const training = isTraining();
     if(!training || !isFocus()){
       app?.querySelectorAll('.wa-focus-added').forEach(n=>n.remove());

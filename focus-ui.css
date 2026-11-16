@@ -60,3 +60,11 @@ body.wa-focus .wa-focus-section .set-grid input,body.wa-focus .wa-focus-section 
 .mini-day span,.legend-meta,.micro-list,.strength-personal span{color:#bebebb!important}
 .exercise-tools summary,.exercise-swap summary,.exercise-guide summary{color:#e9e9e6!important}
 .wa-start-area{background:#242424;border-color:#464646}
+
+/* 2.4.1: remove legacy blue highlights from live exercise tools. */
+.exercise-tools details{background:#292929!important;border-color:#565654!important}
+.exercise-tools summary{color:#ededeb!important}
+.set-method{border-top-color:#51514e!important}
+.set-method summary{color:#c9c9c4!important}
+.exercise-head small,.rir-hint{color:#bdbdb7!important}
+.exercise-swap select{background:#242424!important;border-color:#565654!important}
