@@ -1,4 +1,4 @@
-import {localDate,displayDate,fmt} from './store.js';
+import {localDate,displayDate,fmt} from './store.js?v=2.4.2';
 export function lineChart(entries,unit='kg',options={}){
  const rows=entries.map(x=>({date:x.date||x.x,value:Number(x.value??x.y)})).filter(x=>Number.isFinite(x.value)&&!Number.isNaN(localDate(x.date).getTime())).sort((a,b)=>a.date.localeCompare(b.date));
  if(!rows.length)return '<div class="empty">Für diesen Verlauf liegen noch keine Messwerte vor.</div>';

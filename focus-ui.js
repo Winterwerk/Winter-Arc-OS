@@ -159,7 +159,7 @@
   function schedule() {
     if (pending) return;
     pending=true;
-    queueMicrotask(()=>{pending=false;enhance();});
+    requestAnimationFrame(()=>{pending=false;observer.disconnect();try{enhance();}finally{if(app)observer.observe(app,{childList:true,subtree:true});}});
   }
 
   document.addEventListener('click', event=>{

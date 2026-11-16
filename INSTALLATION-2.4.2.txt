@@ -1,0 +1,7 @@
+WINTER ARC OS 2.4.2 – vollständiges Paket
+Alle Dateien dieses Ordners ins Hauptverzeichnis des bestehenden GitHub-Repositories hochladen und gleichnamige Dateien ersetzen. Keinen zusätzlichen Unterordner erstellen.
+Nach abgeschlossenem Pages-Deployment die bisherige Website in Safari mit ?v=2.4.2 am Ende öffnen. Anschließend die installierte App vollständig schließen und erneut öffnen.
+Keine Website-Daten löschen und die installierte App nicht entfernen: Trainingsdaten sind lokal gespeichert.
+Diese Version versioniert sämtliche Modulimporte und Styles, erneuert den Offline-Cache und trennt die UI-Beobachtung von eigenen DOM-Änderungen.
+Bei fehlgeschlagenem Start erscheinen eine Fehlermeldung und eine Schaltfläche zur Rohdatensicherung. Diese Rohdatensicherung zur Wiederherstellung aufbewahren; sie ist kein normaler Import.
+Prüfung: JavaScript-Syntax, Modulauflösung und Renderfunktionen aller fünf Hauptbereiche mit simuliertem DOM, Erhalt von historischen Daten und Plänen. Kein echter iPhone-/Safari-Test. Die konkrete Ursache auf dem betroffenen Gerät ist nicht bestätigt.

@@ -1,4 +1,4 @@
-export const APP_VERSION='2.4.1';
+export const APP_VERSION='2.4.2';
 export const PLAN_VERSION='WINTER ARC 5.2 · Oldschool Intensity';
 export const GROUPS={
  chest:'Brust',back:'Rücken',delts:'Schultern',biceps:'Bizeps',triceps:'Trizeps',traps:'Trapez',

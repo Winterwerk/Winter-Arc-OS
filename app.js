@@ -1,12 +1,12 @@
-import {APP_VERSION,PLAN_VERSION,BODY_FIELDS,GROUPS,DEFAULT_PLANS,EXERCISE_LABELS,SHIFT_LABELS,estimateMuscles} from './data.js';
-import {readState,migrate,persist,makeBackup,clone,isoToday,localDate,dateISO,weekStart,nextDate,safeNum,fmt,displayDate,uniqueId,latestBodyValue} from './store.js';
-import {atlasCard,muscleLoad} from './atlas.js';
-import {lineChart,barChart} from './charts.js';
-import {exerciseGuide,alternativesFor,BASIC_KNOWLEDGE,EXERCISE_GUIDES} from './lexicon.js';
-import {STRENGTH_BENCHMARKS,LIFTS,STRENGTH_REFERENCES_UPDATED,estimated1rm,fmtStrength} from './strength.js';
-import {EXERCISE_LIBRARY,EQUIPMENT,PROGRAM_TEMPLATES,templatePlans,templateLabels,findLibrary,libraryAlternatives} from './library.js';
-import {orderedExercises,sessionSetCount,removeSetValues,previousSets,setPRs,summarizeWorkout,warmupProposal,plateDistribution,filterSince} from './training-tools.js';
-import {PROGRAM_73_NAME,PROGRAM_73_LABELS,createProgram73,CUSTOM_73_GUIDES} from './plan73.js';
+import {APP_VERSION,PLAN_VERSION,BODY_FIELDS,GROUPS,DEFAULT_PLANS,EXERCISE_LABELS,SHIFT_LABELS,estimateMuscles} from './data.js?v=2.4.2';
+import {readState,migrate,persist,makeBackup,clone,isoToday,localDate,dateISO,weekStart,nextDate,safeNum,fmt,displayDate,uniqueId,latestBodyValue} from './store.js?v=2.4.2';
+import {atlasCard,muscleLoad} from './atlas.js?v=2.4.2';
+import {lineChart,barChart} from './charts.js?v=2.4.2';
+import {exerciseGuide,alternativesFor,BASIC_KNOWLEDGE,EXERCISE_GUIDES} from './lexicon.js?v=2.4.2';
+import {STRENGTH_BENCHMARKS,LIFTS,STRENGTH_REFERENCES_UPDATED,estimated1rm,fmtStrength} from './strength.js?v=2.4.2';
+import {EXERCISE_LIBRARY,EQUIPMENT,PROGRAM_TEMPLATES,templatePlans,templateLabels,findLibrary,libraryAlternatives} from './library.js?v=2.4.2';
+import {orderedExercises,sessionSetCount,removeSetValues,previousSets,setPRs,summarizeWorkout,warmupProposal,plateDistribution,filterSince} from './training-tools.js?v=2.4.2';
+import {PROGRAM_73_NAME,PROGRAM_73_LABELS,createProgram73,CUSTOM_73_GUIDES} from './plan73.js?v=2.4.2';
 
 const $=selector=>document.querySelector(selector);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -255,4 +255,3 @@ document.addEventListener('change',handleChange);
 document.addEventListener('submit',handleSubmit);
 window.addEventListener('hashchange',()=>{const tab=location.hash.slice(1);if(['home','training','body','analyze','more','summary'].includes(tab)&&tab!==ui.tab){ui.tab=tab;render(true)}});
 render();
-if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(err=>console.warn('Offline-Support konnte nicht aktiviert werden',err)));

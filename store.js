@@ -1,4 +1,4 @@
-import {DEFAULT_PLANS} from './data.js';
+import {DEFAULT_PLANS} from './data.js?v=2.4.2';
 export const STORAGE_KEY='winterArcOS_v2';
 export const LEGACY_KEY='winterArcOS_v1';
 export const clone=x=>JSON.parse(JSON.stringify(x));
