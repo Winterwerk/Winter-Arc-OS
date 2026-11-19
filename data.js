@@ -1,4 +1,4 @@
-export const APP_VERSION='2.4.2';
+export const APP_VERSION='3.0.0';
 export const PLAN_VERSION='WINTER ARC 5.2 · Oldschool Intensity';
 export const GROUPS={
  chest:'Brust',back:'Rücken',delts:'Schultern',biceps:'Bizeps',triceps:'Trizeps',traps:'Trapez',
@@ -43,7 +43,7 @@ export const MUSCLE_RULES={
  'glute-bridge':[['glutes',1]],'hip-abduction':[['glutes',1]],
  'calf-straight':[['calves',1]],'calf-bent':[['calves',1]],'calf-c':[['calves',1]],
  'pallof':[['core',1]],'sideplank':[['core',1]],'bird-dog':[['core',1]],
- 'wa73-pec-deck':[['chest',1]],'wa73-lat-supinated':[['back',1],['biceps',.5]],'wa73-lat-row-hip':[['back',1],['biceps',.5]],
+ 'wa74-low-high-fly':[['chest',1]],'wa73-pec-deck':[['chest',1]],'wa73-lat-supinated':[['back',1],['biceps',.5]],'wa73-lat-row-hip':[['back',1],['biceps',.5]],
  'wa73-upright-ez':[['delts',1],['traps',.5]],'wa73-reverse-wrist':[['forearms',1]],'wa73-farmers-hold':[['forearms',1],['traps',.5]],'wa73-adductors':[['adductors',1]],
  'wrist-ext-c':[['forearms',1]],'wrist-ext-a':[['forearms',1]],'rotation-c':[['forearms',1]],
  'external-rotation-a':[['delts',.5]],'external-rotation-c':[['delts',.5]]

@@ -1,12 +1,12 @@
 {
-  "name": "WINTER ARC OS – Body & Strength Intelligence",
-  "short_name": "WINTER ARC",
+  "name": "Winterwerk Körperschmiede",
+  "short_name": "Winterwerk",
   "description": "Offlinefähige private Trainings-, Körper- und Kraftanalyse-App",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#111111",
-  "theme_color": "#111111",
+  "background_color": "#141619",
+  "theme_color": "#141619",
   "lang": "de",
   "icons": [
     {
@@ -19,7 +19,7 @@
       "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }

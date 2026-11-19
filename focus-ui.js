@@ -1,4 +1,4 @@
-/* WINTER ARC OS 2.4 – non-destructive UI enhancement.
+/* WINTERWERK OS 2.4 – non-destructive UI enhancement.
  * Keeps app.js, training state and localStorage data unchanged.
  * Existing app renders normally; this module enhances its DOM.
  */
@@ -19,7 +19,7 @@
       aside.id = 'wa-sidebar';
       aside.setAttribute('aria-label', 'Seitenmenü');
       aside.innerHTML = `
-        <div class="wa-sidebar-brand"><div><strong>WINTER ARC</strong><small>BODY & STRENGTH OS</small></div><button type="button" data-wa-close-menu aria-label="Menü schließen">×</button></div>
+        <div class="wa-sidebar-brand"><div><strong>WINTERWERK</strong><small>BODY & STRENGTH OS</small></div><button type="button" data-wa-close-menu aria-label="Menü schließen">×</button></div>
         <nav class="wa-sidebar-items" aria-label="Hauptnavigation">
           <button data-tab="home" type="button"><span>⌂</span> Übersicht</button>
           <button data-tab="training" type="button"><span>▤</span> Training</button>
@@ -27,7 +27,7 @@
           <button data-tab="analyze" type="button"><span>↗</span> Analyse</button>
           <button data-tab="more" type="button"><span>⚙</span> Mehr & Einstellungen</button>
         </nav>
-        <div class="wa-sidebar-foot">WINTER ARC OS · LOCAL FIRST</div>`;
+        <div class="wa-sidebar-foot">WINTERWERK OS · LOCAL FIRST</div>`;
       document.body.appendChild(aside);
       const backdrop = document.createElement('button');
       backdrop.type = 'button';
@@ -85,8 +85,8 @@
   function decorateTraining(data) {
     const {section,exercises,selected,count,done} = data;
     section.classList.add('wa-focus-section');
-    if (section.dataset.focusIndex === String(selected) && section.querySelector('.wa-focus-top')) return;
-    section.dataset.focusIndex = String(selected);
+    if (section.dataset.focusIndex === String(selected)+':'+done+':'+count && section.querySelector('.wa-focus-top')) return;
+    section.dataset.focusIndex = String(selected)+':'+done+':'+count;
     section.querySelectorAll('.wa-focus-added').forEach(node=>node.remove());
     for (let i=0;i<exercises.length;i++) exercises[i].classList.toggle('wa-active-exercise',i===selected);
     const article = exercises[selected];
@@ -99,7 +99,7 @@
     const suggestion = /Farmer.s Holds/i.test(name)?null:nextSetSuggestion(last,name,range);
     const root = document.createElement('div');
     root.className = 'wa-focus-added wa-focus-top';
-    root.innerHTML = `<div class="wa-focus-heading"><button type="button" class="wa-focus-icon" data-wa-menu aria-label="Seitenmenü öffnen">☰</button><strong>WINTER ARC</strong><button type="button" class="wa-focus-exit" data-wa-exit-focus>Übersicht</button></div>
+    root.innerHTML = `<div class="wa-focus-heading"><button type="button" class="wa-focus-icon" data-wa-menu aria-label="Seitenmenü öffnen">☰</button><strong>WINTERWERK</strong><button type="button" class="wa-focus-exit" data-wa-exit-focus>Übersicht</button></div>
       <div class="wa-focus-progress-meta"><span>ÜBUNG ${selected+1} / ${exercises.length}</span><span>${done} / ${count} SÄTZE</span></div>
       <div class="wa-focus-progress-bar"><span style="width:${count?Math.min(100,Math.round(done/count*100)):0}%"></span></div>
       <div class="wa-focus-kicker">JETZT TRAINIEREN</div><h1 class="wa-focus-title">${html(name)}</h1>
@@ -135,7 +135,7 @@
       topbar.prepend(btn);
     }
     const homeButton = app?.querySelector('.dash-hero [data-start-day]');
-    if (homeButton && homeButton.textContent !== 'Workout starten →') homeButton.textContent = 'Workout starten →';
+    // Home button preserves resume/start wording from the application.
     const training = isTraining();
     if(!training || !isFocus()){
       app?.querySelectorAll('.wa-focus-added').forEach(n=>n.remove());
