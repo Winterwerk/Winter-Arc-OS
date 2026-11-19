@@ -1,32 +1,46 @@
-import {DEFAULT_PLANS} from './data.js?v=2.4.2';
-export const STORAGE_KEY='winterArcOS_v2';
+import {createProgram74,PROGRAM_74_NAME,PROGRAM_74_LABELS} from './plan74.js?v=3.0.0';
+import {DEFAULT_PLANS} from './data.js?v=3.0.0';
+export const STORAGE_KEY='winterwerk_koerperschmiede_v3';
 export const LEGACY_KEY='winterArcOS_v1';
 export const clone=x=>JSON.parse(JSON.stringify(x));
 export function freshState(){return {
- version:2,plans:clone(DEFAULT_PLANS),workouts:[],runs:[],body:[],duty:[],morning:{},draft:null,strengthEntries:[],restTimer:null,exerciseNotes:{},
+ version:3,plans:createProgram74(),schedule:[],cycles:[],sleep:[],shiftEntries:[],supportDrafts:[],workouts:[],runs:[],body:[],duty:[],morning:{},draft:null,strengthEntries:[],restTimer:null,exerciseNotes:{},
  coach:{checkins:{},shifts:{},longPlans:{}},
- settings:{raceDate:'',goalPace:'5:30',raceName:'Halbmarathon',trainPhase:'einstieg',activeProgram:'5.2',goal:'Offseason Mass',heightCm:null,autoRest:true,restSeconds:150,exerciseRest:{}},
+ settings:{raceDate:'',goalPace:'5:30',raceName:'Halbmarathon',theme:'schmiede',onboarded:false,shiftMode:false,cycleMode:false,weeklyTarget:3,trainPhase:'aufbau',activeProgram:PROGRAM_74_NAME,programLabels:{...PROGRAM_74_LABELS},goal:'Offseason Mass',heightCm:null,autoRest:true,restSeconds:150,exerciseRest:{}},
  meta:{createdAt:new Date().toISOString(),migratedFromLegacy:false}
 }}
 export function migrate(raw){
- if(!raw||typeof raw!=='object'||![1,2].includes(Number(raw.version)))throw new Error('Nur Backups der Version 1 oder 2 sind kompatibel.');
- if(!Array.isArray(raw.workouts)||!Array.isArray(raw.body)||!Array.isArray(raw.runs)||!raw.plans||!['A','B','C'].every(k=>Array.isArray(raw.plans[k])))throw new Error('Backup unvollständig oder ungültig.');
+ if(!raw||typeof raw!=='object'||![1,2,3].includes(Number(raw.version)))throw new Error('Nur Backups der Version 1, 2 oder 3 sind kompatibel.');
+ if(!Array.isArray(raw.workouts)||!Array.isArray(raw.body)||!Array.isArray(raw.runs)||!raw.plans||!Object.keys(raw.plans).length||Object.keys(raw.plans).some(k=>!/^([A-Z]|[A-Z][0-9]+)$/.test(k)||!Array.isArray(raw.plans[k])))throw new Error('Backup unvollständig oder ungültig.');
  const defaults=freshState();
  const clean={...defaults,plans:clone(raw.plans),workouts:clone(raw.workouts),body:clone(raw.body),runs:clone(raw.runs),duty:clone(Array.isArray(raw.duty)?raw.duty:[]),morning:clone(raw.morning||{}),draft:clone(raw.draft||null),strengthEntries:clone(Array.isArray(raw.strengthEntries)?raw.strengthEntries:[]),restTimer:clone(raw.restTimer||null),exerciseNotes:clone(raw.exerciseNotes||{}),coach:{...defaults.coach,...clone(raw.coach||{})},settings:{...defaults.settings,...clone(raw.settings||{})},meta:{...defaults.meta,...clone(raw.meta||{}),migratedFromLegacy:Number(raw.version)===1||!!raw.meta?.migratedFromLegacy}};
  // Keep historical exercise IDs, names, notes and personal entries byte-for-byte as data, never create example sessions.
  if(Number(raw.version)===1)clean.settings.activeProgram='legacy-1.2';
  clean.settings.exerciseRest=clean.settings.exerciseRest&&typeof clean.settings.exerciseRest==='object'?clean.settings.exerciseRest:{};
- clean.version=2;
+ for(const key of ['schedule','cycles','sleep','shiftEntries','supportDrafts'])clean[key]=clone(Array.isArray(raw[key])?raw[key]:[]);
+ clean.version=3;
+ clean.meta.revision=Number(raw.meta?.revision)||0;
+ if(Number(raw.version)<3){clean.settings.onboarded=false;clean.settings.activeProgram=raw.settings?.activeProgram||'Übernommener Plan';clean.settings.programLabels=clone(raw.settings?.programLabels||{});}
  return clean;
 }
+let loadedRevision=0;
 export function readState(){
- let stored=null;
- try{stored=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(stored)return {state:migrate(stored),source:'v2'}}catch(e){console.warn('WINTER ARC v2 storage corrupted',e)}
- try{const old=JSON.parse(localStorage.getItem(LEGACY_KEY)||'null');if(old){const state=migrate(old);state.meta.migratedFromLegacy=true;state.meta.migrationDate=new Date().toISOString();localStorage.setItem(STORAGE_KEY,JSON.stringify(state));return {state,source:'v1'}}}catch(e){console.warn('WINTER ARC v1 data could not be migrated',e)}
- return {state:freshState(),source:'new'};
+ for(const key of [STORAGE_KEY,'winterArcOS_v2',LEGACY_KEY]){
+  const text=localStorage.getItem(key);if(text===null)continue;
+  let parsed;try{parsed=JSON.parse(text)}catch{throw new Error('Gespeicherte Daten sind beschädigt. Bitte zuerst die Rohdaten sichern; es wird nichts überschrieben.')}
+  const state=migrate(parsed);loadedRevision=key===STORAGE_KEY?state.meta.revision:0;
+  state.meta.revision=loadedRevision;
+  return {state,source:key};
+ }
+ loadedRevision=0;return {state:freshState(),source:'new'};
 }
 export function persist(state){
- try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));return true}catch(e){alert('Speichern fehlgeschlagen. Speicherplatz und Browser-Einstellungen prüfen. Bitte Backup anlegen.');return false}
+ const text=localStorage.getItem(STORAGE_KEY);let disk;
+ try{disk=text?JSON.parse(text):null}catch{throw new Error('Daten beschädigt. Bitte Rohdaten sichern und neu laden.')}
+ if((disk?.meta?.revision||0)!==loadedRevision)throw new Error('Die Daten wurden in einem anderen Fenster geändert. Bitte diese Seite neu laden.');
+ const next=clone(state);next.meta.revision=loadedRevision+1;
+ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(next))}catch{throw new Error('Speichern fehlgeschlagen. Bitte Backup exportieren und Speicherplatz prüfen.')}
+ loadedRevision=next.meta.revision;state.meta.revision=loadedRevision;return true;
 }
 export function makeBackup(state){return JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2)}
 export function isoToday(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}

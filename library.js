@@ -1,7 +1,7 @@
 /* WINTER ARC OS 2.3 – offline exercise catalogue and editable 3-day program templates.
    Names and equipment labels are classifications, not interchangeable strength standards. */
-import {DEFAULT_PLANS,EXERCISE_LABELS,MUSCLE_RULES,estimateMuscles} from './data.js?v=2.4.2';
-import {EXERCISE_GUIDES} from './lexicon.js?v=2.4.2';
+import {DEFAULT_PLANS,EXERCISE_LABELS,MUSCLE_RULES,estimateMuscles} from './data.js?v=3.0.0';
+import {EXERCISE_GUIDES} from './lexicon.js?v=3.0.0';
 
 const added=[
  // id, name, group, equipment, secondary muscle credits

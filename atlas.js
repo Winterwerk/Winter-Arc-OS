@@ -1,5 +1,5 @@
-import {GROUPS,estimateMuscles} from './data.js?v=2.4.2';
-import {weekStart,nextDate,isoToday,fmt,displayDate} from './store.js?v=2.4.2';
+import {GROUPS,estimateMuscles} from './data.js?v=3.0.0';
+import {weekStart,nextDate,isoToday,fmt,displayDate} from './store.js?v=3.0.0';
 export function muscleLoad(workouts,selectedWeek=weekStart(isoToday())){
  const loads=Object.fromEntries(Object.keys(GROUPS).map(g=>[g,{direct:0,indirect:0,exercises:[]} ]));
  const end=nextDate(selectedWeek,7);
